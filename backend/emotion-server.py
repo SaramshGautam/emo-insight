@@ -9,16 +9,14 @@ import os
 
 app = Flask(__name__)
 
-# Add CORS configuration to allow the specific origin (React app)
-CORS(app, resources={r"/*": {"origins": "http://localhost:3001"}})
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# Initialize the emotion detection pipeline using PyTorch weights
 pipe = pipeline("text2text-generation", model="mrm8488/t5-base-finetuned-emotion")
 
-# Define a mapping from predicted emotions to the 4 main states
+# Mapping from predicted emotions to the 5 main states
 emotion_mapping = {
     "joy": "happy",      
     "love": "happy",     
@@ -30,36 +28,30 @@ emotion_mapping = {
 
 # Function to get emotion for a given text
 def get_emotion(text):
-    result = pipe(text)[0]['generated_text'].strip()  # Extract the 'generated_text' from pipeline output
+    result = pipe(text)[0]['generated_text'].strip()  
     
-    # Map the result to one of the main states
     main_emotion = emotion_mapping.get(result, "confused")  # Default to 'confused' if emotion not mapped
     return main_emotion
 
 @app.route('/predict-emotion', methods=['POST'])
 def analyze_paragraph():
-    data = request.get_json()  # Get the JSON payload from the client
-    paragraph = data.get("paragraph", "")  # Extract the 'paragraph' field from the request
+    data = request.get_json()  
+    paragraph = data.get("paragraph", "")  
     
-    # Log the input text (for debugging)
     print(f"Received paragraph: {paragraph}")
     
-    # Tokenize the paragraph into sentences
     sentences = nltk.sent_tokenize(paragraph)
     emotions = []
 
-    # Get emotion for each sentence and log it
     for sentence in sentences:
         emotion = get_emotion(sentence)
         emotions.append({"sentence": sentence, "emotion": emotion})
         print(f"Sentence: {sentence} -> Emotion: {emotion}")
 
-    # Determine the overall emotion based on the most common emotion and log it
     all_emotions = [e["emotion"] for e in emotions]
     overall_emotion = Counter(all_emotions).most_common(1)[0][0]
     print(f"Overall Emotion: {overall_emotion}")
     
-    # Return all sentence predictions and the overall emotion
     return jsonify({
         "overall_emotion": overall_emotion,
         "sentence_emotions": emotions  # List of sentence-level emotions
@@ -71,7 +63,6 @@ def exercise():
         data = request.get_json()
         journal_text = data.get('journal', '')
 
-        # Prepare message for GPT model
         messages = [
             {"role": "system", "content": "You are a helpful assistant."},
             {
@@ -89,7 +80,6 @@ def exercise():
             }
         ]
 
-        # Send request to OpenAI GPT API
         response = openai.chat.completions.create(
             model="gpt-4o",  
             messages=messages,

@@ -161,7 +161,7 @@ const Dashboard = () => {
     return levels;
   };
 
-  // Handle the Submit button click
+  // Handle Submit button click
   const handleSubmit = () => {
     setLoadingSubmit(true);
     axios
