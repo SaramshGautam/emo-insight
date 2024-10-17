@@ -1,0 +1,254 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Left Panel (Journal Input) */
+.left-panel {
+  width: 50%;
+  padding: 20px;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-panel h2 {
+  margin-bottom: 10px;
+}
+
+.journal-input {
+  flex: 1;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: none;
+}
+
+/* Right Panel (Emotion Tracker) */
+.right-panel {
+  width: 50%;
+  padding: 20px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Emotion Track Bar Section */
+.emotion-track {
+  margin-bottom: 20px;
+}
+
+.emotion-track h3 {
+  margin-bottom: 10px;
+}
+
+.track-bars {
+  display: flex;
+  flex-direction: column;
+}
+
+.track-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.track-bar span {
+  width: 100px;
+}
+
+.range-slider {
+  width: 100%;
+}
+
+/* Emotion Graph Section */
+.emotion-graph {
+  margin-bottom: 20px;
+}
+
+.emotion-graph h3 {
+  margin-bottom: 10px;
+}
+
+.graph-placeholder {
+  height: 200px;
+  background-color: #f0f0f0;
+  border: 2px dashed #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exercise-panel {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.formatted-exercise h3 {
+  font-size: 1.2em;
+  color: #333;
+}
+
+.formatted-exercise ul {
+  margin-left: 20px;
+  list-style-type: disc;
+}
+
+.formatted-exercise p {
+  margin: 10px 0;
+}
+
+/* Exercise Suggestion Panel */
+.exercise-panel h3 {
+  margin-bottom: 10px;
+}
+
+.exercise-list {
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+.exercise-list li {
+  margin-bottom: 5px;
+}
+
+/* Button Group */
+.button-group,
+.exercise-btn {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.submit-btn,
+.clear-btn,
+.exercise-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.clear-btn {
+  background-color: #f44336;
+  color: white;
+}
+.exercise-btn {
+  width: 150px;
+  background-color: #b5f436;
+  color: black;
+}
+
+.submit-btn:hover {
+  background-color: #45a049;
+}
+
+.clear-btn:hover {
+  background-color: #e53935;
+}
+.exercise-btn:hover {
+  background-color: #5a751a;
+}
+
+.circular-bars {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.circular-bar {
+  width: 120px;
+  text-align: center;
+}
+
+.circular-bar span {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.exercise-panel {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.formatted-exercise h3 {
+  font-size: 1.2em;
+  color: #333;
+}
+
+.formatted-exercise ul {
+  margin-left: 20px;
+  list-style-type: disc;
+}
+
+.formatted-exercise p {
+  margin: 10px 0;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* Span full width */
+  background-color: #007bff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.navbar-brand h1 {
+  color: white;
+  margin: 0;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links li {
+  display: inline;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+}
+
+.dashboard-container {
+  margin-top: 20px; /* To avoid overlapping with the navbar */
+  padding: 20px;
+}
