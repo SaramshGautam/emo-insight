@@ -14,7 +14,7 @@ Follow the steps below to set up both the backend (Python) and frontend (React) 
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/SaramshGautam/emo-insight.git
 ```
 
 ### 2. Backend Setup
