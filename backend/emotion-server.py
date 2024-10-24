@@ -6,6 +6,7 @@ from collections import Counter
 import openai
 from dotenv import load_dotenv
 import os
+import json
 
 app = Flask(__name__)
 
@@ -32,6 +33,15 @@ def get_emotion(text):
     
     main_emotion = emotion_mapping.get(result, "confused")  # Default to 'confused' if emotion not mapped
     return main_emotion
+
+@app.route('/emotions-history', methods=['GET'])
+def get_emotions_history():
+    try:
+        with open('/Users/dev/emo-insight/backend/data/emotions_history.json', 'r') as file:
+            history_data = json.load(file)
+        return jsonify(history_data), 200
+    except Exception as e:
+        return jsonify({'error': 'Failed to retrieve data'}), 500
 
 @app.route('/predict-emotion', methods=['POST'])
 def analyze_paragraph():

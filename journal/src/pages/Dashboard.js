@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import JournalInput from "../components/JournalInput";
 import EmotionTrackBar from "../components/EmotionTrackBar";
 import EmotionGraph from "../components/EmotionGraph";
@@ -21,102 +21,24 @@ const Dashboard = () => {
     confused: 0,
   });
 
-  const sampleWords = [
-    { text: "happy", value: 20 },
-    { text: "sad", value: 10 },
-    { text: "anxious", value: 15 },
-    { text: "love", value: 25 },
-    { text: "fear", value: 5 },
-  ];
-
-  const [wordCloudData, setWordCloudData] = useState(sampleWords);
-
-  const sampleData = [
-    {
-      date: "2024-09-01",
-      happy: 70,
-      sad: 30,
-      angry: 20,
-      anxious: 50,
-      confused: 10,
-    },
-    {
-      date: "2024-09-02",
-      happy: 60,
-      sad: 40,
-      angry: 10,
-      anxious: 30,
-      confused: 50,
-    },
-    {
-      date: "2024-09-03",
-      happy: 60,
-      sad: 20,
-      angry: 10,
-      anxious: 20,
-      confused: 5,
-    },
-    {
-      date: "2024-09-04",
-      happy: 20,
-      sad: 70,
-      angry: 20,
-      anxious: 30,
-      confused: 10,
-    },
-    {
-      date: "2024-09-05",
-      happy: 15,
-      sad: 5,
-      angry: 15,
-      anxious: 35,
-      confused: 45,
-    },
-    {
-      date: "2024-09-06",
-      happy: 60,
-      sad: 40,
-      angry: 10,
-      anxious: 30,
-      confused: 50,
-    },
-    {
-      date: "2024-09-07",
-      happy: 25,
-      sad: 10,
-      angry: 50,
-      anxious: 20,
-      confused: 10,
-    },
-    {
-      date: "2024-09-08",
-      happy: 10,
-      sad: 20,
-      angry: 10,
-      anxious: 35,
-      confused: 10,
-    },
-    {
-      date: "2024-09-10",
-      happy: 15,
-      sad: 25,
-      angry: 20,
-      anxious: 30,
-      confused: 50,
-    },
-    {
-      date: "2024-09-11",
-      happy: 45,
-      sad: 45,
-      angry: 20,
-      anxious: 35,
-      confused: 35,
-    },
-    // Add more data as needed
-  ];
-
   const [exerciseSuggestion, setExerciseSuggestion] = useState("");
-  const [lineChartData, setLineChartData] = useState(sampleData);
+  // const [lineChartData, setLineChartData] = useState(sampleData);
+  const [lineChartData, setLineChartData] = useState([]);
+
+  useEffect(() => {
+    const fetchEmotionHistory = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:8080/emotions-history"
+        );
+        setLineChartData(response.data);
+      } catch (error) {
+        console.error("Failed to fetch historical data:", error);
+      }
+    };
+
+    fetchEmotionHistory(); // Call the function when the component mounts
+  }, []);
 
   // Handle journal input changes
   const handleJournalChange = (event) => {

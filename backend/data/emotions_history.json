@@ -1,0 +1,82 @@
+[
+  {
+    "date": "2024-09-01",
+    "happy": 70,
+    "sad": 30,
+    "angry": 20,
+    "anxious": 50,
+    "confused": 10
+  },
+  {
+    "date": "2024-09-02",
+    "happy": 60,
+    "sad": 40,
+    "angry": 10,
+    "anxious": 30,
+    "confused": 50
+  },
+  {
+    "date": "2024-09-03",
+    "happy": 60,
+    "sad": 20,
+    "angry": 10,
+    "anxious": 20,
+    "confused": 5
+  },
+  {
+    "date": "2024-09-04",
+    "happy": 20,
+    "sad": 70,
+    "angry": 20,
+    "anxious": 30,
+    "confused": 10
+  },
+  {
+    "date": "2024-09-05",
+    "happy": 15,
+    "sad": 5,
+    "angry": 15,
+    "anxious": 35,
+    "confused": 45
+  },
+  {
+    "date": "2024-09-06",
+    "happy": 60,
+    "sad": 40,
+    "angry": 10,
+    "anxious": 30,
+    "confused": 50
+  },
+  {
+    "date": "2024-09-07",
+    "happy": 25,
+    "sad": 10,
+    "angry": 50,
+    "anxious": 20,
+    "confused": 10
+  },
+  {
+    "date": "2024-09-08",
+    "happy": 10,
+    "sad": 20,
+    "angry": 10,
+    "anxious": 35,
+    "confused": 10
+  },
+  {
+    "date": "2024-09-10",
+    "happy": 15,
+    "sad": 25,
+    "angry": 20,
+    "anxious": 30,
+    "confused": 50
+  },
+  {
+    "date": "2024-09-11",
+    "happy": 45,
+    "sad": 45,
+    "angry": 20,
+    "anxious": 35,
+    "confused": 35
+  }
+]
