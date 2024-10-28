@@ -24,10 +24,10 @@ const EmotionLineChart = ({ data }) => {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="happy" stroke="#4caf50" />
-          <Line type="monotone" dataKey="sad" stroke="#f44336" />
-          <Line type="monotone" dataKey="angry" stroke="#ff9800" />
-          <Line type="monotone" dataKey="anxious" stroke="#2196f3" />
+          <Line type="monotone" dataKey="happy" stroke="#00e676" />
+          <Line type="monotone" dataKey="sad" stroke="#29b6f6" />
+          <Line type="monotone" dataKey="angry" stroke="#ff1744" />
+          <Line type="monotone" dataKey="anxious" stroke="#cdde60" />
           <Line type="monotone" dataKey="confused" stroke="#9c27b0" />
         </LineChart>
       </ResponsiveContainer>

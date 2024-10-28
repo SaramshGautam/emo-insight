@@ -27,7 +27,8 @@ const EmotionTrackBar = ({
             value={emotionLevels.sad || 0}
             text={`${emotionLevels.sad || 0}%`}
             styles={buildStyles({
-              pathColor: "#ff3d00", // Red for sad
+              // pathColor: "#ff3d00", // Red for sad
+              pathColor: "#29b6f6", // blue for sad
               textColor: "#333",
               trailColor: "#d6d6d6",
             })}
@@ -51,7 +52,7 @@ const EmotionTrackBar = ({
             value={emotionLevels.anxious || 0}
             text={`${emotionLevels.anxious || 0}%`}
             styles={buildStyles({
-              pathColor: "#ffea00", // Yellow for anxious
+              pathColor: "#cdde60", // Yellow for anxious
               textColor: "#333",
               trailColor: "#d6d6d6",
             })}
@@ -63,7 +64,7 @@ const EmotionTrackBar = ({
             value={emotionLevels.confused || 0}
             text={`${emotionLevels.confused || 0}%`}
             styles={buildStyles({
-              pathColor: "#29b6f6", // Blue for confused
+              pathColor: "#9c27b0", // Blue for confused
               textColor: "#333",
               trailColor: "#d6d6d6",
             })}
