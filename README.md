@@ -20,3 +20,51 @@ Emo-Insight is an application that analyzes the emotional state of users based o
 ```bash
 git clone <repository-url>
 cd emo-insight
+```
+
+# Backend Setup (Python Flask)
+
+## Steps
+
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
+2. Create a Python virtual environment:
+
+```bash
+python -m venv venv
+```
+
+3. Activate the virtual environment:
+
+On Linux/macOS:
+```bash
+
+source venv/bin/activate
+```
+On Windows:
+```bash
+venv\Scripts\activate
+```
+
+4. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+5. Download NLTK dependencies:
+
+```bash
+python
+>>> import nltk
+>>> nltk.download('punkt')
+>>> exit()
+```
+
+6. Run the backend server:
+
+```bash
+python emotion-server.py
+```
