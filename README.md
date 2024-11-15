@@ -18,7 +18,7 @@ Emo-Insight is an application that analyzes the emotional state of users based o
 ### Cloning the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/SaramshGautam/emo-insight.git
 cd emo-insight
 ```
 
