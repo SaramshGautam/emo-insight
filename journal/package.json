@@ -11,7 +11,6 @@
     "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
-    "react-wordcloud": "^1.2.7",
     "recharts": "^2.12.7",
     "web-vitals": "^2.1.4"
   },
