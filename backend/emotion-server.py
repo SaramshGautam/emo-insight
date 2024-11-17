@@ -37,7 +37,7 @@ def get_emotion(text):
 @app.route('/emotions-history', methods=['GET'])
 def get_emotions_history():
     try:
-        with open('/Users/dev/emo-insight/backend/data/emotions_history.json', 'r') as file:
+        with open('./data/emotions_history.json', 'r') as file:
             history_data = json.load(file)
         return jsonify(history_data), 200
     except Exception as e:
