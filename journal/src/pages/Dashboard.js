@@ -29,7 +29,7 @@ const Dashboard = () => {
     const fetchEmotionHistory = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8080/emotions-history"
+          "http://127.0.0.1:5000/emotions-history"
         );
         setLineChartData(response.data);
       } catch (error) {
@@ -45,54 +45,15 @@ const Dashboard = () => {
     setJournal(event.target.value);
   };
 
-  // Map emotions from backend response to track bar values
-  const mapEmotionsToLevels = (emotions) => {
-    const levels = { happy: 0, sad: 0, angry: 0, anxious: 0, confused: 0 };
-    const emotionCounts = {};
-
-    // Count occurrences of each emotion
-    emotions.forEach((emotion) => {
-      if (emotionCounts[emotion]) {
-        emotionCounts[emotion] += 1;
-      } else {
-        emotionCounts[emotion] = 1;
-      }
-    });
-
-    // Calculate percentage levels for each emotion
-
-    const totalSentences = emotions.length;
-    levels.happy = (
-      ((emotionCounts.happy || 0) / totalSentences) *
-      100
-    ).toFixed(2);
-    levels.sad = (((emotionCounts.sad || 0) / totalSentences) * 100).toFixed(2);
-    levels.angry = (
-      ((emotionCounts.angry || 0) / totalSentences) *
-      100
-    ).toFixed(2);
-    levels.anxious = (
-      ((emotionCounts.anxious || 0) / totalSentences) *
-      100
-    ).toFixed(2);
-    levels.confused = (
-      ((emotionCounts.confused || 0) / totalSentences) *
-      100
-    ).toFixed(2);
-
-    return levels;
-  };
 
   // Handle Submit button click
   const handleSubmit = () => {
     setLoadingSubmit(true);
     axios
-      .post("http://localhost:8080/predict-emotion", { paragraph: journal })
+      .post("http://127.0.0.1:5000/predict-emotion", { paragraph: journal })
       .then((response) => {
         console.log("Predicted Emotion:", response.data);
-        const levels = mapEmotionsToLevels(
-          response.data.sentence_emotions.map((item) => item.emotion)
-        );
+        const levels = response.data.sentence_emotions;
         setEmotionLevels(levels);
         setLoadingSubmit(false);
       })
@@ -113,7 +74,7 @@ const Dashboard = () => {
   const handleExerciseSuggestion = () => {
     setLoadingExercise(true);
     axios
-      .post("http://localhost:8080/suggest-exercise", { journal })
+      .post("http://127.0.0.1:5000/suggest-exercise", { journal })
       .then((response) => {
         setExerciseSuggestion(response.data.exercise);
         setLoadingExercise(false);
