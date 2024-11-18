@@ -10,6 +10,8 @@ distro==1.9.0
 filelock==3.16.1
 Flask==3.0.3
 Flask-Cors==5.0.0
+Flask-Migrate==4.0.7
+flask-sqlalchemy==3.1.1
 flatbuffers==24.3.25
 fsspec==2024.9.0
 gast==0.6.0
