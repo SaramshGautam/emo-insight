@@ -63,12 +63,21 @@ python
 >>> exit()
 ```
 
-6. Run the backend server:
+6. Run the backend server (using flask). `cd` into the backend directory and run:
 
 ```bash
-python emotion-server.py
+flask --app emotion-server.py run
 ```
 
+7. Create a new window of terminal, again source into venv following the STEP 3 and `cd` into database directory. Run the following:
+
+```bash
+export FLASK_APP=emotion-server
+flask create-db
+flask seed-db
+```
+
+**Note:** Step 7 needs to be run only once for setting up the database.
 
 
 # Frontend Setup (React)
